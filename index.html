@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MD Slides</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- HOME: list of saved presentations -->
+  <main id="home" class="view">
+    <header class="home-head">
+      <h1>MD Slides</h1>
+      <button id="newBtn" class="btn primary">New presentation</button>
+    </header>
+    <p class="hint">Write slides in Markdown. Separate slides with <code>---</code>. Everything is saved in this browser.</p>
+    <ul id="deckList" class="deck-list"></ul>
+    <p id="emptyMsg" class="empty hidden">No presentations yet. Create one to get started.</p>
+  </main>
+
+  <!-- EDITOR: markdown on the left, live preview on the right -->
+  <section id="editor" class="view hidden">
+    <header class="bar">
+      <button id="backBtn" class="btn">Back</button>
+      <input id="titleInput" type="text" placeholder="Presentation title" aria-label="Presentation title">
+      <span id="status" class="status">Saved</span>
+      <button id="saveBtn" class="btn primary">Save (Ctrl+S)</button>
+    </header>
+    <div class="split">
+      <div class="pane code-pane">
+        <label for="mdInput" class="pane-label">Markdown</label>
+        <textarea id="mdInput" spellcheck="false"></textarea>
+      </div>
+      <div class="pane preview-pane">
+        <span class="pane-label">Preview</span>
+        <div id="previewMount" class="viewer"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRESENTER: full screen presentation -->
+  <section id="presenter" class="view hidden">
+    <div id="presenterMount" class="viewer presenter-viewer"></div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
